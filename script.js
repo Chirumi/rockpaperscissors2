@@ -90,8 +90,12 @@ function winner() {
 function game() {
     for (let i = 0; i < 5; i++) {
         playRound()
-        console.log(playerScore)
-        console.log(computerScore)
+        console.log(`
+        -----
+        Player: ${playerScore}`)
+        console.log(`
+        Computer: ${computerScore}
+        -----`)
     }
     winner()
 }
