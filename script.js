@@ -1,6 +1,16 @@
-function playRound() { // Plays a round of rock, paper, scissors
-    let playerPrompt = prompt("Choose: Rock, Paper or Scissors") // Stores our input of rock, paper or scissors
-    let playerSelection = playerPrompt.toLowerCase()
+let playerScore = 0
+let computerScore = 0
+
+const rock = document.querySelector(".rock")
+const paper = document.querySelector(".paper")
+const scissors = document.querySelector(".scissors")
+
+rock.addEventListener("click", () => {playRound("rock")})
+paper.addEventListener("click", () => {playRound("paper")})
+scissors.addEventListener("click", () => {playRound("scissors")})
+
+function playRound(weaponChoice) { // Plays a round of rock, paper, scissors
+    let playerSelection = weaponChoice
 
     function getComputerChoice() { // Computer's choices of rock, paper or sicssors
         let randomNumber = Math.floor(Math.random()*3)
@@ -14,6 +24,7 @@ function playRound() { // Plays a round of rock, paper, scissors
             return "scissors"
         }
     }
+
     let computerSelection = getComputerChoice()
 
     if (playerSelection === "rock" && computerSelection === "rock") {
@@ -72,9 +83,6 @@ function playRound() { // Plays a round of rock, paper, scissors
     }
 }
 
-let playerScore = 0
-let computerScore = 0
-
 function winner() {
     if (playerScore < computerScore) {
         console.log("YOU'VE LOST THE GAME!")
@@ -87,20 +95,19 @@ function winner() {
     }
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound()
-        console.log(`
-        -----
-        Player: ${playerScore}`)
-        console.log(`
-        Computer: ${computerScore}
-        -----`)
-    }
-    winner()
-}
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         playRound()
+//         console.log(`
+//         -----
+//         Player: ${playerScore}`)
+//         console.log(`
+//         Computer: ${computerScore}
+//         -----`)
+//     }
+//     winner()
+// } 
 
-game()
 
 
 
