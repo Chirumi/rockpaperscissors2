@@ -7,6 +7,8 @@ const scissors = document.querySelector(".scissors")
 const playerChoice = document.querySelector(".playerChoice")
 const computerChoice = document.querySelector(".computerChoice")
 const result = document.querySelector(".result")
+const pScore = document.querySelector(".pScore")
+const cScore = document.querySelector(".cScore")
 
 rock.addEventListener("click", () => {playRound("rock")})
 paper.addEventListener("click", () => {playRound("paper")})
@@ -84,6 +86,9 @@ function playRound(weaponChoice) { // Plays a round of rock, paper, scissors
     else {
         console.log("Choose between Rock, Paper or Scissors!")
     }
+
+    pScore.innerHTML = `Your score: ${playerScore}`
+    cScore.innerHTML = `Your score: ${computerScore}`
 }
 
 function winner() {
@@ -97,19 +102,6 @@ function winner() {
         console.log("THE GAME IS TIED!")
     }
 }
-
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         playRound()
-//         console.log(`
-//         -----
-//         Player: ${playerScore}`)
-//         console.log(`
-//         Computer: ${computerScore}
-//         -----`)
-//     }
-//     winner()
-// } 
 
 
 
