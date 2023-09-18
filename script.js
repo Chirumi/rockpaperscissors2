@@ -1,4 +1,4 @@
-// Make retry button that only appears if playerScore OR computerScore reaches 5 when game ends
+// Make retry button functionality
 
 let playerScore = 0
 let computerScore = 0
