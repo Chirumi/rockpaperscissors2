@@ -2,5 +2,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 50px;
+}
+
+.scores {
+    height: 250px;
+    width: 250px;
 }
 

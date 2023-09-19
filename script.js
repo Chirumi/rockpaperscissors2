@@ -94,29 +94,42 @@ function playRound(weaponChoice) { // Plays a round of rock, paper, scissors
         }
 
         pScore.innerHTML = `Your score: ${playerScore}`
-        cScore.innerHTML = `Your score: ${computerScore}`
+        cScore.innerHTML = `Computer score: ${computerScore}`
         winner()
     }
     else {
-        if ((playerScore == 5 || computerScore == 5) && retry == 0) {
-            let retryButton = document.createElement("button")
-            retryButton.innerHTML = "RETRY"
-            retryButton.addEventListener("click", () => {
-                
-            })
-            scores.appendChild(retryButton)
-            retry = 1
-        }
+        winner()
     }
 }
 
 function winner() {
-    if (computerScore == 5) {
+    if (computerScore == 5 && retry == 0) {
         gameResult.innerHTML = "YOU LOST THE GAME!"
+        gameEnds ()
     } 
-    else if (playerScore == 5) {
+    else if (playerScore == 5 && retry == 0) {
         gameResult.innerHTML = "YOU WON THE GAME!"
+        gameEnds ()
     }
+}
+
+function gameEnds () {
+    let retryButton = document.createElement("button")
+    retryButton.innerHTML = "RETRY"
+    retryButton.addEventListener("click", () => {
+        playerScore = 0
+        computerScore = 0
+        retry = 0
+        pScore.innerHTML = `Your score: ${playerScore}`
+        cScore.innerHTML = `Computer score: ${computerScore}`
+        gameResult.innerHTML = ""
+        playerChoice.innerHTML = "You chose: "
+        computerChoice.innerHTML = "Computer chose: "
+        result.innerHTML = "Result: "
+        scores.removeChild(retryButton)
+    })
+    scores.appendChild(retryButton)
+    retry = 1
 }
 
 
